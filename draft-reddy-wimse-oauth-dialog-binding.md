@@ -369,6 +369,11 @@ with the dialog context. They do not forward access tokens
 {{I-D.ietf-wimse-aims}}. A transaction token does not leave its trust
 domain.
 
+A transaction token is short-lived, so its lifetime bounds how long
+the authorization it carries can be out of date. If the authorization
+is revoked within that lifetime, participants learn of it through
+Shared Signals ({{security}}).
+
 ## Receiver Check {#txn-check}
 
 A receiver of a request that carries both a transaction token and a
