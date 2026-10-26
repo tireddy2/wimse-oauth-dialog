@@ -34,6 +34,7 @@ normative:
   I-D.ietf-oauth-identity-chaining:
 
 informative:
+  I-D.agentic-ai-usecases-requirements:
   RFC6750:
   RFC7523:
   I-D.ietf-wimse-arch:
@@ -57,12 +58,26 @@ answers agree.
 
 # Introduction {#intro}
 
-The agent communication architecture {{I-D.zahed-agentproto-refarch}}
-groups the interactions between users, agents, and tools that serve a
-task into a dialog. An agent communication protocol carries a dialog
-context with each request, which identifies the dialog and the
-participant that created it. This document assumes that the dialog
-context is carried in an HTTP field named `Dialog-Context`.
+The use cases and requirements for agent dialogs
+{{I-D.agentic-ai-usecases-requirements}} describe how users, agents,
+and tools interact over the course of a task, in a dialog. Among
+them, a receiver needs to verify who sent a request or response, who
+created the dialog, and that no hop altered the dialog context it
+carries. Authorization granted in one dialog also needs to be limited
+to that dialog.
+
+These requirements lead to an agent communication architecture
+{{I-D.zahed-agentproto-refarch}}, a dialog management protocol, and
+security mechanisms such as those in this document. This document
+meets them with existing WIMSE and OAuth credentials: the WIMSE HTTP
+signature or WPT covers the dialog context, the transaction token records the dialog
+identifier, and at a trust boundary a linked dialog starts together
+with identity chaining.
+
+An agent communication protocol carries a dialog context with each
+request, which identifies the dialog and the participant that created
+it. This document assumes that the dialog context is carried in an
+HTTP field named `Dialog-Context`.
 
 The dialog management protocol defines no credentials, signatures, or
 authorization model of its own. It relies on WIMSE for workload
