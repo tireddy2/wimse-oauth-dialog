@@ -17,7 +17,6 @@ pi: [toc, sortrefs, symrefs]
 
 author:
   -
-    ins: T. Reddy
     fullname: Tirumaleswar Reddy
     organization: Nokia
     email: k.tirumaleswar_reddy@nokia.com
@@ -52,7 +51,7 @@ informative:
   I-D.ietf-wimse-aims:
   I-D.reddy-wimse-aggregate-signatures:
   I-D.manyfolks-agentproto-arch:
-    title: "Terminology, Framework and Architecture for the Agent Communications Protocol (ACP)"
+    title: "Architecture for AI Agent Communications on the Internet"
     target: https://datatracker.ietf.org/doc/draft-manyfolks-agentproto-arch/
 
 --- abstract
@@ -274,8 +273,8 @@ Dialog identifier (`dlg`):
 
 Creator:
 : The WIMSE workload identifier {{I-D.ietf-wimse-identifier}} of the
-  participant that created the dialog. A receiver checks that the first proof in the chain was made
-  by this workload ({{verify}}).
+  participant that created the dialog. A receiver checks that the
+  first proof in the chain was made by this workload ({{verify}}).
 
 The dialog context does not carry credentials or tokens, which travel
 in their own fields, nor the context an agent builds over the dialog.
@@ -512,7 +511,7 @@ D1 (step 0). A2 holds a domain A transaction token that records D1.
   |       |                    |    :    |            | tctx.dlg=D2 |
   |       |                    |    :    |            |<------------|
 ~~~
-{: #fig-boundary title="Linked dialog D2 at the boundary between domains A and B"}
+{: #fig-boundary title="Linked dialog D2 at the domain boundary"}
 
 1. A2 needs to call B1 in domain B. A dialog does not cross a trust
    boundary, so A2 creates a linked dialog D2, with itself as creator.
